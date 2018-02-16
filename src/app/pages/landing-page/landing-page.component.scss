@@ -1,0 +1,49 @@
+.section {
+  padding: 20px;
+  height: 40vh;
+  .row {
+    width: 100%;
+  }
+  mat-icon {
+    width: 200px;
+    height: 200px;
+    font-size: 12em;
+  }
+}
+
+.color-acent {
+  color: #27756e;
+  mat-list-item {
+    color: #27756e;
+  }
+}
+.background-vector {
+  //background-image: url('../../../assets/right_vector.png');
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
+.head {
+  background: linear-gradient(#2e88d1, #2e88d1, #f3f2f3);
+  span {
+    font-size: 10em;
+    color: #ffffff
+  }
+}
+
+.gradient {
+  background: linear-gradient(#f3f2f3, #2e88d1, #2e88d1, #f3f2f3);
+  color: #ffffff;
+
+  mat-list-item {
+    color: #27756e;
+  }
+  mat-list-item {
+    color: #ffffff;
+  }
+}
+.vector {
+  //background-image: url('../../../assets/left_vector.png');
+  background-position: left;
+  background-repeat: no-repeat;
+}

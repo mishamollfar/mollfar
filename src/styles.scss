@@ -1,1 +1,131 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "theme";
+// Include non-theme styles for core.
+@include mat-core();
+
+// Include all theme styles for the components.
+@include angular-material-theme($theme);
+
+html, body, app-root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+hr {
+  border-bottom: none;
+  border-top: 1px solid #ddd;
+  border-right: none;
+  border-left: none;
+}
+
+.full-screen-dialog  {
+  max-width: none !important;
+  width: 100vw;
+  height: 100vh;
+  .mat-dialog-content {
+    max-height: 100%;
+  }
+}
+
+body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+
+  margin: 0;
+  min-width: 420px;
+
+  // Helps fonts on OSX looks more consistent with other systems
+  // Isn't currently in button styles due to performance concerns
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  strong {
+    font-weight: 500;
+  }
+}
+
+button[mat-raised-button], button[mat-button] {
+  mat-spinner.mat-spinner {
+    width: 20px !important;
+    height: 24px !important;
+    display: inline-block !important;
+    svg {
+      width: 20px !important;
+      height: 24px !important;
+    }
+  }
+}
+
+.link-button {
+  color: #448AFF;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+mat-sidenav {
+  width: 200px;
+}
+
+.circle-img {
+  border-radius: 50%;
+  background-color: #eee;
+  margin: 0 4px;
+}
+
+.fixed {
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+}
+
+.page-content {
+  //background: linear-gradient(0deg, #ffffff00 46%, #fff 80%);
+  background: #fafafa;
+  border-radius: 4px;
+  padding: 8px;
+  //margin-top: 24px;
+  min-height: 48px;
+}
+
+.fab-button {
+  position: fixed !important;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1;
+}
+
+.subtitle {
+  color: mat-color($mat-grey, 900, 0.54);
+}
+
+.second-header {
+  font-size: 0.8em;
+}
+
+.not-found {
+  text-align: center;
+  margin: 16px auto 0;
+  color: mat-color($mat-grey, 600);
+  & strong {
+    color: #333
+  }
+}
+
+.on {
+  color: mat-color($accent, 500);
+}
+
+.off {
+  color: mat-color($warn, 500);
+}
+
+
