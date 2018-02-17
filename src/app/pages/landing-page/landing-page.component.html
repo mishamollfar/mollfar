@@ -19,14 +19,7 @@
 </div>
 
 <div class="section photo-gallery" fxLayout="row" fxLayoutAlign="stretch center" fxLayoutWrap="wrap">
-  <img fxFlex="1 1 24%" [src]="'../../../assets/photogalery/1.jpg'">
-  <img fxFlex="1 1 24%" [src]="'../../../assets/photogalery/2.jpg'">
-  <img fxFlex="1 1 24%" [src]="'../../../assets/photogalery/3.jpg'">
-  <img fxFlex="1 1 24%" [src]="'../../../assets/photogalery/4.jpg'">
-  <img fxFlex="1 1 24%" [src]="'../../../assets/photogalery/5.jpg'">
-  <img fxFlex="1 1 24%" [src]="'../../../assets/photogalery/6.jpg'">
-  <img fxFlex="1 1 24%" [src]="'../../../assets/photogalery/7.jpg'">
-  <img fxFlex="1 1 24%" [src]="'../../../assets/photogalery/8.png'">
+  <img fxFlex="1 1 24%" *ngFor="let photo of photos" [src]="photo">
 </div>
 
 <div class="section color-acent background-vector psychology" fxLayout="column" fxLayoutAlign="space-around center">
@@ -61,7 +54,7 @@
       © 2018 ui version: 1.0.0 | <a href="mailto:mishell17@meta.ua">Mollfar.</a> Всі права захищені.
     </div>
    <div>
-     <button mat-fab style="background: #4267b2">
+     <button mat-fab style="color: #4267b2">
        <a href="https://www.facebook.com/molfar7" target="_blank">
          <i>
            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
