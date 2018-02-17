@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'pr-news-page',
+  selector: 'ml-news-page',
   templateUrl: './news-page.component.html',
   styleUrls: ['./news-page.component.scss']
 })

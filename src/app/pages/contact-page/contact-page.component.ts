@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'pr-contact-page',
+  selector: 'ml-contact-page',
   templateUrl: './contact-page.component.html',
   styleUrls: ['./contact-page.component.scss']
 })
