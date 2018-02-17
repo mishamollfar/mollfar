@@ -33,17 +33,6 @@ export class LandingPageComponent implements OnInit {
     }
   ];
 
-  photos = [
-    '../../../assets/photogalery/1.jpg',
-    '../../../assets/photogalery/2.jpg',
-    '../../../assets/photogalery/3.jpg',
-    '../../../assets/photogalery/4.jpg',
-    '../../../assets/photogalery/5.jpg',
-    '../../../assets/photogalery/6.jpg',
-    '../../../assets/photogalery/7.jpg',
-    '../../../assets/photogalery/8.png'
-  ];
-
   constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
