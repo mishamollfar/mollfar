@@ -56,10 +56,15 @@
 }
 
 .photo-gallery {
-  height: 44vh;
+  height: 60vh;
   background: #379dfe;
-  img {
-    margin: 5px;
+  .img-container {
+    max-height: 50%;
+    img {
+      margin: 5px;
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
 

@@ -9,7 +9,7 @@
   <ng-container *ngFor="let n of newslist; let i = index">
     <div *ngIf="i === currentnews" fxLayout="row" fxLayoutAlign="space-around center">
       <img fxFlex="1 1 24%" [src]="n.image">
-      <span style="margin: auto 10px">{{n.text}}</span>
+      <span style="margin: auto 10px">{{n.text}}<a class="link-button" target="_blank" [href]="n.link"> детальніше</a></span>
     </div>
   </ng-container>
 
@@ -18,8 +18,10 @@
   </button>
 </div>
 
-<div class="section photo-gallery" fxLayout="row" fxLayoutAlign="stretch center" fxLayoutWrap="wrap">
-  <img fxFlex="1 1 24%" *ngFor="let photo of photos" [src]="photo">
+<div class="section photo-gallery" fxLayout="row" fxLayoutAlign="center stretch " fxLayoutWrap="wrap" fxLayoutGap="5px" >
+  <div class="img-container" fxLayoutAlign="center stretch " *ngFor="let photo of photos" fxFlex="1 1 32%">
+    <img fxFlex="1 1 100%" [src]="photo">
+  </div>
 </div>
 
 <div class="section color-acent background-vector psychology" fxLayout="column" fxLayoutAlign="space-around center">
@@ -38,23 +40,14 @@
 </div>
 
 
-<div class="section color-acent contact" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-  <h3>Наші партнери</h3>
-  <div fxLayout="row" fxLayoutGap="20px" fxLayoutWrap="wrap">
-    <a class="link-button color-link" href="https://instapost.pw" target="_blank">InstaPost</a>
-    <a class="link-button color-link" href="https://dev.telepost.pw" target="_blank">TelePost</a>
-    <a class="link-button color-link" href="https://ecotime.me" target="_blank">EcoTime</a>
-    <a class="link-button color-link" href="https://cosar.ecotime.me" target="_blank">Cosar</a>
-    <a class="link-button color-link" href="https://reaper.pw" target="_blank">Reaper</a>
-    <a class="link-button color-link" href="https://dev.live-cover.pw" target="_blank">LiveCover</a>
-  </div>
-  <div></div>
+<div class="section color-acent contact" fxLayout="column" fxLayoutAlign="space-around end" fxLayoutGap="20px">
+  <div fxFlex=""></div>
   <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
     <div>
       © 2018 ui version: 1.0.0 | <a href="mailto:mishell17@meta.ua">Mollfar.</a> Всі права захищені.
     </div>
    <div>
-     <button mat-fab style="color: #4267b2">
+     <button mat-fab style="background: #4267b2">
        <a href="https://www.facebook.com/molfar7" target="_blank">
          <i>
            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
