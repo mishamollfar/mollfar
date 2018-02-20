@@ -3,17 +3,26 @@
 </div>
 
 <div class="section news" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
-  <button *ngIf="currentnews > 0"  mat-button color="primary" (click)="previewNews()">
+  <button fxHide fxShow.gt-sm *ngIf="currentnews > 0"  mat-button color="primary" (click)="previewNews()">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+  <button fxShow.gt-sm="false" *ngIf="currentnews > 0"  mat-icon-button color="primary" (click)="previewNews()">
     <mat-icon>keyboard_arrow_left</mat-icon>
   </button>
   <ng-container *ngFor="let n of newslist; let i = index">
     <div *ngIf="i === currentnews" fxLayout="row" fxLayoutAlign="space-around center">
       <img fxFlex="1 1 24%" [src]="n.image">
-      <span style="margin: auto 10px">{{n.text}}<a class="link-button" target="_blank" [href]="n.link"> детальніше</a></span>
+      <span fxHide fxShow.gt-md style="margin: auto 10px">{{n.text}}<a class="link-button" target="_blank" [href]="n.link"> детальніше</a></span>
+      <span fxShow.gt-md="false" style="margin: auto 10px">
+        {{n.text.substring(0, 150)}}<a class="link-button" target="_blank" [href]="n.link"> детальніше</a>
+      </span>
     </div>
   </ng-container>
 
-  <button *ngIf="currentnews < newslist.length - 1" mat-button color="primary" (click)="nextNews()">
+  <button fxHide fxShow.gt-sm *ngIf="currentnews < newslist.length - 1" mat-button color="primary" (click)="nextNews()">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+  <button fxShow.gt-sm="false" *ngIf="currentnews < newslist.length - 1" mat-icon-button color="primary" (click)="nextNews()">
     <mat-icon>keyboard_arrow_right</mat-icon>
   </button>
 </div>
@@ -43,7 +52,7 @@
 <div class="section color-acent contact" fxLayout="column" fxLayoutAlign="space-around end" fxLayoutGap="20px">
   <div fxFlex=""></div>
   <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 100%;">
-    <div>
+    <div fxFlex="">
       © 2018 ui version: 1.0.0 | <a href="mailto:mishell17@meta.ua">Mollfar.</a> Всі права захищені.
     </div>
    <div>

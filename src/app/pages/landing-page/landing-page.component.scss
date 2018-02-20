@@ -4,11 +4,6 @@
   .row {
     width: 100%;
   }
-  mat-icon {
-    width: 200px;
-    height: 200px;
-    font-size: 12em;
-  }
 }
 
 .color-acent {
@@ -75,6 +70,46 @@
       height: 100%;
       font-size: 7em;
       margin: auto 5px auto -30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 960px) {
+  .head {
+    span {
+      font-size: 5em !important;
+    }
+  }
+  .color-acent {
+    h3 {
+      margin: 0;
+    }
+    mat-list-item {
+      font-size: 0.8em;
+      height: 24px;
+    }
+  }
+  .news {
+    button {
+      mat-icon {
+        font-size: 3em;
+        margin: auto 5px auto 0;
+      }
+    }
+  }
+  .background-vector {
+    background: transparent;
+  }
+}
+
+@media only screen and (max-width: 1280px) {
+  .color-acent {
+    h3 {
+      margin: 0;
+    }
+    mat-list-item {
+      font-size: 0.8em;
+      height: 24px;
     }
   }
 }
