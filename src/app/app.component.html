@@ -1,2 +1,14 @@
-<router-outlet></router-outlet>
+<ngx-loading-bar [includeSpinner]="false" [color]="'#58f357'"></ngx-loading-bar>
+<mat-toolbar color="primary" fxLayoutGap="25px" [class.home-toolbar]="homePage">
+  <span class="link-section" routerLink="/">Головна</span>
+  <span class="link-section" routerLink="/news">Новини</span>
+  <span class="link-section" routerLink="/photo">Фотогалерея</span>
+  <span class="link-section" routerLink="/tests">Тести</span>
+  <span class="link-section" routerLink="/contact">Контакти</span>
+</mat-toolbar>
+
+<div [class.content]="!homePage">
+  <router-outlet></router-outlet>
+</div>
+
 
