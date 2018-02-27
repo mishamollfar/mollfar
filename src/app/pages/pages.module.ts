@@ -5,12 +5,16 @@ import { PhotoGalleryPageComponent } from './photo-gallery-page/photo-gallery-pa
 import { HomePageComponent } from './home-page/home-page.component';
 import { NewsPageComponent } from './news-page/news-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
-import {SharedModule} from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  imports: [
-    CommonModule, SharedModule
-  ],
-  declarations: [LandingPageComponent, PhotoGalleryPageComponent, HomePageComponent, NewsPageComponent, ContactPageComponent]
+  imports: [CommonModule, SharedModule],
+  declarations: [
+    LandingPageComponent,
+    PhotoGalleryPageComponent,
+    HomePageComponent,
+    NewsPageComponent,
+    ContactPageComponent
+  ]
 })
-export class PagesModule { }
+export class PagesModule {}
