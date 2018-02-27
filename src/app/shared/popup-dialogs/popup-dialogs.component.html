@@ -1,0 +1,13 @@
+<h2 mat-dialog-title *ngIf="data.type !== 'info'">{{data.type === 'confirm' ? 'Подтверждение' : 'Предупреждение'}}</h2>
+<h2 mat-dialog-title *ngIf="data.type === 'info'">Вітаєм! Ваш результат.</h2>
+
+<mat-dialog-content class="content">
+  <p class="subtitle">{{data.message}}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions class="btn-confirm">
+  <button mat-button mat-dialog-close *ngIf="data.type === 'confirm'">Отмена</button>
+  <button mat-button mat-dialog-close *ngIf="data.type === 'info'">Пройти ще раз</button>
+  <button mat-raised-button [color]="data.type === 'confirm' || data.type === 'info' ? 'primary' : 'warn'"
+          (click)="access()">Ок</button>
+</mat-dialog-actions>

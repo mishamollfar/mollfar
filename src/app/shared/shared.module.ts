@@ -17,6 +17,7 @@ import {
   MatNativeDateModule,
   MatOptionModule,
   MatProgressSpinnerModule,
+  MatRadioModule,
   MatRippleModule,
   MatSelectModule,
   MatSidenavModule,
@@ -32,6 +33,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { PopupDialogsComponent } from './popup-dialogs/popup-dialogs.component';
+import { PopupDialogsService } from './popup-dialogs/popup-dialogs.service';
 
 @NgModule({
   imports: [
@@ -66,9 +69,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatSlideToggleModule,
     FormsModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatRadioModule
   ],
-  declarations: [],
+  declarations: [PopupDialogsComponent],
+  entryComponents: [PopupDialogsComponent],
   exports: [
     MatSidenavModule,
     MatToolbarModule,
@@ -100,7 +105,10 @@ import { OverlayModule } from '@angular/cdk/overlay';
     MatSlideToggleModule,
     FormsModule,
     MatTableModule,
-    MatFormFieldModule
-  ]
+    MatFormFieldModule,
+    MatRadioModule,
+    PopupDialogsComponent
+  ],
+  providers: [PopupDialogsService]
 })
 export class SharedModule {}
