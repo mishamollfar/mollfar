@@ -107,6 +107,11 @@ mat-sidenav {
   color: mat-color($mat-grey, 900, 0.54);
 }
 
+.link-section {
+  cursor: pointer;
+  outline: none;
+}
+
 .second-header {
   font-size: 0.8em;
 }
