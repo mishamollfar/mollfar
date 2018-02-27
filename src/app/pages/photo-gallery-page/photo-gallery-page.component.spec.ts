@@ -6,12 +6,13 @@ describe('PhotoGalleryPageComponent', () => {
   let component: PhotoGalleryPageComponent;
   let fixture: ComponentFixture<PhotoGalleryPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ PhotoGalleryPageComponent ]
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [PhotoGalleryPageComponent]
+      }).compileComponents();
     })
-    .compileComponents();
-  }));
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(PhotoGalleryPageComponent);

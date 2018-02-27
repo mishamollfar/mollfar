@@ -3,18 +3,35 @@ import { CommonModule } from '@angular/common';
 import {
   MatAutocompleteModule,
   MatButtonModule,
-  MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, MatExpansionModule, MatFormFieldModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatExpansionModule,
+  MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatListModule,
-  MatMenuModule, MatNativeDateModule,
-  MatOptionModule, MatProgressSpinnerModule, MatRippleModule, MatSelectModule,
-  MatSidenavModule, MatSlideToggleModule, MatSnackBarModule, MatStepperModule, MatTableModule, MatTabsModule,
-  MatToolbarModule, MatTooltipModule
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatOptionModule,
+  MatProgressSpinnerModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
-import {OverlayModule} from '@angular/cdk/overlay';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
   imports: [
@@ -86,4 +103,4 @@ import {OverlayModule} from '@angular/cdk/overlay';
     MatFormFieldModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {}

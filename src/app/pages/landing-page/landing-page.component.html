@@ -2,7 +2,7 @@
   <span>Mollfar</span>
 </div>
 
-<div class="section news" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
+<div class="section news link-section" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px" routerLink="/news">
   <button fxHide fxShow.gt-sm *ngIf="currentnews > 0"  mat-button color="primary" (click)="previewNews()">
     <mat-icon>keyboard_arrow_left</mat-icon>
   </button>
@@ -27,23 +27,25 @@
   </button>
 </div>
 
-<div class="section photo-gallery" fxLayout="row" fxLayoutAlign="center stretch " fxLayoutWrap="wrap" fxLayoutGap="5px" >
+<div class="section photo-gallery link-section" fxLayout="row" fxLayoutAlign="center stretch "
+     fxLayoutWrap="wrap" fxLayoutGap="5px" routerLink="/photo">
   <div class="img-container" fxLayoutAlign="center stretch " *ngFor="let photo of photos" fxFlex="1 1 32%">
     <img fxFlex="1 1 100%" [src]="photo">
   </div>
 </div>
 
-<div class="section color-acent background-vector psychology" fxLayout="column" fxLayoutAlign="space-around center">
+<div class="section color-acent background-vector psychology link-section"
+     fxLayout="column" fxLayoutAlign="space-around center" routerLink="/tests">
   <h3>Психологічні тести</h3>
   <div class="row" fxLayout="row" fxLayoutAlign="space-around center">
     <mat-list fxFlex="1 1 auto">
-      <mat-list-item>оцінка рівня тривожноті та контактності</mat-list-item>
+      <mat-list-item>оцінка рівня тривожноті</mat-list-item>
       <mat-list-item>тип темпераменту</mat-list-item>
-      <mat-list-item>тест на спостережливість</mat-list-item>
-      <mat-list-item>перевір наявність у себе бізнес-жилки</mat-list-item>
-      <mat-list-item>експрес-діагностика організаторських здібностей</mat-list-item>
+      <mat-list-item>оцінка рівня контактності</mat-list-item>
+      <mat-list-item>наявність у себе бізнес-жилки</mat-list-item>
+      <mat-list-item>організаторські здібностей</mat-list-item>
       <mat-list-item>визначення самооцінки</mat-list-item>
-      <mat-list-item>педагогічний стиль</mat-list-item>
+      <mat-list-item>стиль</mat-list-item>
     </mat-list>
   </div>
 </div>
