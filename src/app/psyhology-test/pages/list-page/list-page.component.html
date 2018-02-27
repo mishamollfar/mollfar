@@ -1,3 +1,8 @@
-<p>
-  list-page works!
-</p>
+<div fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="15px" fxLayoutWrap="wrap">
+  <div fxFlex="1 1 30%" *ngFor="let test of tests" >
+    <mat-card class="link-section" fxFlex="1 1 100%" fxLayoutAlign="stretch" [routerLink]="test.routerlink">
+      <mat-card-content>{{test.name}}</mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
