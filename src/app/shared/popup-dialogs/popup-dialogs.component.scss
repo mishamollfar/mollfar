@@ -1,6 +1,9 @@
 .content {
   text-align: center;
   min-width: 25vw;
+  p {
+    white-space: pre-wrap;
+  }
 }
 .btn-confirm {
   float: right;
