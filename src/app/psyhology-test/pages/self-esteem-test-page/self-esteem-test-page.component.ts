@@ -1,10 +1,10 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {PopupDialogsService} from '../../../shared/popup-dialogs/popup-dialogs.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {testSelfEsteem} from './questions';
-import {answersTest, variantAnswer} from './answer';
-import {current} from 'codelyzer/util/syntaxKind';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { testSelfEsteem } from './questions';
+import { answersTest, variantAnswer } from './answer';
+import { current } from 'codelyzer/util/syntaxKind';
 
 @Component({
   selector: 'ml-self-esteem-test-page',
@@ -12,7 +12,6 @@ import {current} from 'codelyzer/util/syntaxKind';
   styleUrls: ['./self-esteem-test-page.component.scss']
 })
 export class SelfEsteemTestPageComponent implements OnInit {
-
   questions;
   answersControl;
   answers;
@@ -20,10 +19,12 @@ export class SelfEsteemTestPageComponent implements OnInit {
   equalTest = false;
   selfEsteemTest: FormGroup;
 
-  constructor(private fb: FormBuilder,
-              private info: PopupDialogsService,
-              private cd: ChangeDetectorRef,
-              private router: Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private info: PopupDialogsService,
+    private cd: ChangeDetectorRef,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.questions = testSelfEsteem;
@@ -67,9 +68,11 @@ export class SelfEsteemTestPageComponent implements OnInit {
   }
 
   getSummer() {
-    const numberArray = Object.keys(this.selfEsteemTest.value).map(item => this.convertAnswerTonumber(this.selfEsteemTest.value[item]));
+    const numberArray = Object.keys(this.selfEsteemTest.value).map(item =>
+      this.convertAnswerTonumber(this.selfEsteemTest.value[item])
+    );
 
-    return  numberArray.reduce((sum, _current) => sum + _current, 0);
+    return numberArray.reduce((sum, _current) => sum + _current, 0);
   }
 
   convertAnswerTonumber(answer) {
