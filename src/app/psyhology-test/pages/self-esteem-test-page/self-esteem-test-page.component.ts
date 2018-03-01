@@ -4,7 +4,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { testSelfEsteem } from './questions';
 import { answersTest, variantAnswer } from './answer';
-import { current } from 'codelyzer/util/syntaxKind';
 
 @Component({
   selector: 'ml-self-esteem-test-page',
