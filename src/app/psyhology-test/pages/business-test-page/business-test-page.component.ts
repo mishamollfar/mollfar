@@ -29,7 +29,7 @@ export class BusinessTestPageComponent implements OnInit {
     this.questionsControl = Object.keys(this.questions);
     this.initForm();
   }
-  
+
   initForm() {
     this.businessTest = this.fb.group({});
     this.createFormControl();

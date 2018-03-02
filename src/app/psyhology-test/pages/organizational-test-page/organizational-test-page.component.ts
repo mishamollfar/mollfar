@@ -1,9 +1,9 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {PopupDialogsService} from '../../../shared/popup-dialogs/popup-dialogs.service';
-import {testOrganizator} from './questions';
-import {answersTest, variantAnswer} from './answer';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
+import { testOrganizator } from './questions';
+import { answersTest, variantAnswer } from './answer';
 
 @Component({
   selector: 'ml-organizational-test-page',
@@ -85,11 +85,12 @@ export class OrganizationalTestPageComponent implements OnInit {
     const answerA = this.getNumberAnswer('A').filter(item => item === 'true').length;
     const answerB = this.getNumberAnswer('B').filter(item => item === 'false').length;
 
-    return ((answerA + answerB) * 100) / 20;
+    return (answerA + answerB) * 100 / 20;
   }
 
   getNumberAnswer(typeAnswer: 'A' | 'B') {
-    const numberAnswer = typeAnswer === 'A' ? [1, 3, 5, 7, 9, 11, 13, 17, 18, 19, 20] : [2, 4, 6, 8, 10, 12, 14, 15, 16];
+    const numberAnswer =
+      typeAnswer === 'A' ? [1, 3, 5, 7, 9, 11, 13, 17, 18, 19, 20] : [2, 4, 6, 8, 10, 12, 14, 15, 16];
     const answerKey = Object.keys(this.organizatorTest.value).map(item => this.getElementArray(numberAnswer, item));
 
     return answerKey.filter(item => item);

@@ -1,9 +1,9 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {PopupDialogsService} from '../../../shared/popup-dialogs/popup-dialogs.service';
-import {testAnxiety} from './questions';
-import {answersTest, variantAnswer} from './answer';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
+import { testAnxiety } from './questions';
+import { answersTest, variantAnswer } from './answer';
 
 @Component({
   selector: 'ml-anxiety-level--test-page',
@@ -11,7 +11,6 @@ import {answersTest, variantAnswer} from './answer';
   styleUrls: ['./anxiety-level--test-page.component.scss']
 })
 export class AnxietyLevelTestPageComponent implements OnInit {
-
   questions;
   answersControl;
   answers;
