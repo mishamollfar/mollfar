@@ -3,7 +3,7 @@
 <div [formGroup]="selfEsteemTest" fxLayout="column" fxLayoutGap="20px">
   <div *ngFor="let control of questionsControl; let i = index">
     <h3>{{i + 1}} {{questions[control]}}</h3>
-    <mat-radio-group [formControlName]="control" fxLayout="column" fxLayoutGap="10px">
+    <mat-radio-group [formControlName]="control" fxLayout="column" fxLayoutGap="10px" style="margin-left: 20px">
       <mat-radio-button *ngFor="let item of answersControl" [value]="item">
         {{item}}) {{answers[item]}}
       </mat-radio-button>
