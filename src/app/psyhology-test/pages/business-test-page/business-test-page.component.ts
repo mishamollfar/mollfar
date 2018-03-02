@@ -25,20 +25,19 @@ export class BusinessTestPageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.initForm();
     this.questions = testBusiness;
     this.questionsControl = Object.keys(this.questions);
+    this.initForm();
+  }
+  
+  initForm() {
+    this.businessTest = this.fb.group({});
+    this.createFormControl();
   }
 
-  initForm() {
-    this.businessTest = this.fb.group({
-      question1: this.fb.control('', [Validators.required]),
-      question2: this.fb.control('', [Validators.required]),
-      question3: this.fb.control('', [Validators.required]),
-      question4: this.fb.control('', [Validators.required]),
-      question5: this.fb.control('', [Validators.required]),
-      question6: this.fb.control('', [Validators.required]),
-      question7: this.fb.control('', [Validators.required])
+  createFormControl() {
+    this.questionsControl.forEach(key => {
+      this.businessTest.setControl(key, this.fb.control('', [Validators.required]));
     });
   }
 
