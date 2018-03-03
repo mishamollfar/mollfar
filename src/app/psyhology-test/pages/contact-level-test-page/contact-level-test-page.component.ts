@@ -1,9 +1,9 @@
-import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {PopupDialogsService} from '../../../shared/popup-dialogs/popup-dialogs.service';
-import {Router} from '@angular/router';
-import {testContact} from './questions';
-import {answerTest} from './answer';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
+import { Router } from '@angular/router';
+import { testContact } from './questions';
+import { answerTest } from './answer';
 
 @Component({
   selector: 'ml-contact-level-test-page',
@@ -89,7 +89,7 @@ export class ContactLevelTestPageComponent implements OnInit {
 
   getNumberAnswer() {
     const typeAnswerA = [2, 5, 7, 8, 10];
-    const typeAnswerC = [ 1, 3, 4, 6, 9];
+    const typeAnswerC = [1, 3, 4, 6, 9];
 
     return Object.keys(this.contactTest.value).map(item => this.getElementArray(typeAnswerA, typeAnswerC, item));
   }
