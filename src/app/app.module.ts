@@ -10,7 +10,7 @@ import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
-import {ServiceModule} from './service/service.module';
+import { ServiceModule } from './service/service.module';
 
 @NgModule({
   declarations: [AppComponent],

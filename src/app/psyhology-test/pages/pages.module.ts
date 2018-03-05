@@ -7,7 +7,7 @@ import { AnxietyLevelTestPageComponent } from './anxiety-level--test-page/anxiet
 import { ContactLevelTestPageComponent } from './contact-level-test-page/contact-level-test-page.component';
 import { OrganizationalTestPageComponent } from './organizational-test-page/organizational-test-page.component';
 import { BusinessTestPageComponent } from './business-test-page/business-test-page.component';
-import {TestComponent} from '../test/test.component';
+import { TestComponent } from '../test/test.component';
 
 @NgModule({
   imports: [CommonModule, SharedModule],

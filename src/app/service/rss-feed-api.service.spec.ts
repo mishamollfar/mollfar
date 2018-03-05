@@ -9,7 +9,10 @@ describe('RssFeedApiService', () => {
     });
   });
 
-  it('should be created', inject([RssFeedApiService], (service: RssFeedApiService) => {
-    expect(service).toBeTruthy();
-  }));
+  it(
+    'should be created',
+    inject([RssFeedApiService], (service: RssFeedApiService) => {
+      expect(service).toBeTruthy();
+    })
+  );
 });

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 export interface Feed {
   title: string;
@@ -12,30 +12,31 @@ export interface Feed {
 
 @Injectable()
 export class RssFeedApiService {
-
-  constructor() { }
+  constructor() {}
 
   getFeeds(feedUrl) {
     return this.request('GET', feedUrl);
   }
 
   request(method, url): Observable<any> {
-    return Observable.from(new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.open(method, url);
+    return Observable.from(
+      new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open(method, url);
 
-      xhr.send();
+        xhr.send();
 
-      xhr.onreadystatechange = () => {
-        if (xhr.readyState === 4) {
-          if (xhr.status === 200) {
-            resolve(xhr.responseXML);
-          } else {
-            reject(xhr.response);
+        xhr.onreadystatechange = () => {
+          if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+              resolve(xhr.responseXML);
+            } else {
+              reject(xhr.response);
+            }
           }
-        }
-      };
-    }));
+        };
+      })
+    );
   }
 }
 
@@ -49,7 +50,7 @@ export function parseXmlToJson(xmlData) {
       url: key.querySelector('link').innerHTML,
       description: key.querySelector('description').innerHTML,
       date: key.querySelector('pubDate').innerHTML,
-      image: key.querySelector('enclosure').getAttribute('url'),
+      image: key.querySelector('enclosure').getAttribute('url')
     });
   });
 

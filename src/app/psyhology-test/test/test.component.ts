@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ml-test',
@@ -7,7 +7,6 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
-
   answersControl;
   questionsControl;
 
@@ -18,7 +17,7 @@ export class TestComponent implements OnInit {
 
   @Output() equal = new EventEmitter();
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.answersControl = Object.keys(this.answers);
@@ -35,5 +34,4 @@ export class TestComponent implements OnInit {
   equalResponse() {
     this.equal.emit();
   }
-
 }

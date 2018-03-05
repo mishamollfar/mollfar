@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { testBusiness } from './questions';
-import {answerTest, variantAnswer} from './answer-test';
+import { answerTest, variantAnswer } from './answer-test';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
 import { Router } from '@angular/router';
 
