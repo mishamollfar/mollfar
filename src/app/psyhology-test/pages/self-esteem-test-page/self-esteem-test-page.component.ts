@@ -12,9 +12,7 @@ import { answersTest, variantAnswer } from './answer';
 })
 export class SelfEsteemTestPageComponent implements OnInit {
   questions;
-  answersControl;
   answers;
-  questionsControl;
   equalTest = false;
   selfEsteemTest: FormGroup;
 
@@ -23,26 +21,13 @@ export class SelfEsteemTestPageComponent implements OnInit {
     private info: PopupDialogsService,
     private cd: ChangeDetectorRef,
     private router: Router
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.questions = testSelfEsteem;
     this.answers = variantAnswer;
-    this.answersControl = Object.keys(variantAnswer);
-    this.questionsControl = Object.keys(testSelfEsteem);
-    this.initForm();
-  }
-
-  initForm() {
     this.selfEsteemTest = this.fb.group({});
-    this.createFormControl();
   }
 
-  createFormControl() {
-    this.questionsControl.forEach(key => {
-      this.selfEsteemTest.setControl(key, this.fb.control('', [Validators.required]));
-    });
-  }
+  ngOnInit() {}
 
   clearForm() {
     this.selfEsteemTest.reset();

@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
 import { testOrganizator } from './questions';
@@ -12,9 +12,7 @@ import { answersTest, variantAnswer } from './answer';
 })
 export class OrganizationalTestPageComponent implements OnInit {
   questions;
-  answersControl;
   answers;
-  questionsControl;
   equalTest = false;
   organizatorTest: FormGroup;
 
@@ -23,26 +21,13 @@ export class OrganizationalTestPageComponent implements OnInit {
     private info: PopupDialogsService,
     private cd: ChangeDetectorRef,
     private router: Router
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.questions = testOrganizator;
     this.answers = variantAnswer;
-    this.answersControl = Object.keys(variantAnswer);
-    this.questionsControl = Object.keys(testOrganizator);
-    this.initForm();
-  }
-
-  initForm() {
     this.organizatorTest = this.fb.group({});
-    this.createFormControl();
   }
 
-  createFormControl() {
-    this.questionsControl.forEach(key => {
-      this.organizatorTest.setControl(key, this.fb.control('', [Validators.required]));
-    });
-  }
+  ngOnInit() {}
 
   clearForm() {
     this.organizatorTest.reset();

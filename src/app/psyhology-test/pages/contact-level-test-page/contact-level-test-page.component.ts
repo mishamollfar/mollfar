@@ -1,9 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
 import { Router } from '@angular/router';
 import { testContact } from './questions';
-import { answerTest } from './answer';
+import { variantAnswer, answerTest } from './answer';
 
 @Component({
   selector: 'ml-contact-level-test-page',
@@ -12,8 +12,7 @@ import { answerTest } from './answer';
 })
 export class ContactLevelTestPageComponent implements OnInit {
   questions;
-  answers = ['a', 'b', 'c'];
-  questionsControl;
+  answers;
   equalTest = false;
   contactTest: FormGroup;
 
@@ -22,24 +21,13 @@ export class ContactLevelTestPageComponent implements OnInit {
     private info: PopupDialogsService,
     private cd: ChangeDetectorRef,
     private router: Router
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.questions = testContact;
-    this.questionsControl = Object.keys(this.questions);
-    this.initForm();
-  }
-
-  initForm() {
+    this.answers = variantAnswer;
     this.contactTest = this.fb.group({});
-    this.createFormControl();
   }
 
-  createFormControl() {
-    this.questionsControl.forEach(key => {
-      this.contactTest.setControl(key, this.fb.control('', [Validators.required]));
-    });
-  }
+  ngOnInit() {}
 
   clearForm() {
     this.contactTest.reset();

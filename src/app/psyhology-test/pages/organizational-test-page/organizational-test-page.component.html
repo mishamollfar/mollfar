@@ -1,24 +1,4 @@
 <h2>Психологічний тест на рівня тривожності</h2>
 
-<div [formGroup]="organizatorTest" fxLayout="column" fxLayoutGap="20px">
-  <div *ngFor="let control of questionsControl; let i = index">
-    <h3>{{i + 1}} {{questions[control]}}</h3>
-    <mat-radio-group [formControlName]="control" fxLayout="row" fxLayoutGap="20px" style="margin-left: 20px">
-      <mat-radio-button *ngFor="let item of answersControl" [value]="item">
-        {{item}}) {{answers[item]}}
-      </mat-radio-button>
-    </mat-radio-group>
-  </div>
-</div>
-
-<div fxLayout="row" fxLayoutAlign="end center">
-  <div fxFlex=""></div>
-  <button mat-button color="primary" routerLink="/tests">
-    <span>Назад до тестів</span>
-  </button>
-
-  <button mat-raised-button color="primary" [disabled]="organizatorTest.invalid || equalTest" (click)="equalResponse()">
-    <mat-spinner *ngIf="equalTest"></mat-spinner>
-    <span>Результат</span>
-  </button>
-</div>
+<ml-test [form]="organizatorTest" [answers]="answers" [questions]="questions" [equalTest]="equalTest"
+         (equal)="equalResponse()"></ml-test>

@@ -1,24 +1,4 @@
 <h2>Психологічний тест на визначення рівня котактності</h2>
 
-<div [formGroup]="contactTest" fxLayout="column" fxLayoutGap="20px">
-  <div *ngFor="let control of questionsControl; let i = index">
-    <h3>{{i + 1}} {{questions[control]['question']}}</h3>
-    <mat-radio-group [formControlName]="control" fxLayout="column" fxLayoutGap="10px" style="margin-left: 20px">
-      <mat-radio-button *ngFor="let item of answers" [value]="item">
-        {{item}}) {{questions[control].answer[item]}}
-      </mat-radio-button>
-    </mat-radio-group>
-  </div>
-</div>
-
-<div fxLayout="row" fxLayoutAlign="end center">
-  <div fxFlex=""></div>
-  <button mat-button color="primary" routerLink="/tests">
-    <span>Назад до тестів</span>
-  </button>
-
-  <button mat-raised-button color="primary" [disabled]="contactTest.invalid || equalTest" (click)="equalResponse()">
-    <mat-spinner *ngIf="equalTest"></mat-spinner>
-    <span>Результат</span>
-  </button>
-</div>
+<ml-test [form]="contactTest" [answers]="answers" [questions]="questions" [equalTest]="equalTest"
+         (equal)="equalResponse()"></ml-test>

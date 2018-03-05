@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
 import { testAnxiety } from './questions';
@@ -12,9 +12,7 @@ import { answersTest, variantAnswer } from './answer';
 })
 export class AnxietyLevelTestPageComponent implements OnInit {
   questions;
-  answersControl;
   answers;
-  questionsControl;
   equalTest = false;
   anxietyTest: FormGroup;
 
@@ -23,26 +21,13 @@ export class AnxietyLevelTestPageComponent implements OnInit {
     private info: PopupDialogsService,
     private cd: ChangeDetectorRef,
     private router: Router
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.questions = testAnxiety;
     this.answers = variantAnswer;
-    this.answersControl = Object.keys(variantAnswer);
-    this.questionsControl = Object.keys(testAnxiety);
-    this.initForm();
-  }
-
-  initForm() {
     this.anxietyTest = this.fb.group({});
-    this.createFormControl();
   }
 
-  createFormControl() {
-    this.questionsControl.forEach(key => {
-      this.anxietyTest.setControl(key, this.fb.control('', [Validators.required]));
-    });
-  }
+  ngOnInit() {}
 
   clearForm() {
     this.anxietyTest.reset();

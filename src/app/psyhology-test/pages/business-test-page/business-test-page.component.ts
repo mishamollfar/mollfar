@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { testBusiness } from './questions';
-import { answerTest } from './answer-test';
+import {answerTest, variantAnswer} from './answer-test';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
 import { Router } from '@angular/router';
 
@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 })
 export class BusinessTestPageComponent implements OnInit {
   questions;
-  answers = ['a', 'b', 'c'];
-  questionsControl;
+  answers;
   equalTest = false;
   businessTest: FormGroup;
 
@@ -22,24 +21,13 @@ export class BusinessTestPageComponent implements OnInit {
     private info: PopupDialogsService,
     private cd: ChangeDetectorRef,
     private router: Router
-  ) {}
-
-  ngOnInit() {
+  ) {
     this.questions = testBusiness;
-    this.questionsControl = Object.keys(this.questions);
-    this.initForm();
-  }
-
-  initForm() {
+    this.answers = variantAnswer;
     this.businessTest = this.fb.group({});
-    this.createFormControl();
   }
 
-  createFormControl() {
-    this.questionsControl.forEach(key => {
-      this.businessTest.setControl(key, this.fb.control('', [Validators.required]));
-    });
-  }
+  ngOnInit() {}
 
   clearForm() {
     this.businessTest.reset();
