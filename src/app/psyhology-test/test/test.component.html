@@ -1,0 +1,22 @@
+<div [formGroup]="form" fxLayout="column" fxLayoutGap="20px">
+  <div *ngFor="let control of questionsControl; let i = index">
+    <h3>{{i + 1}} {{questions[control]['question'] ? questions[control]['question'] : questions[control]}}</h3>
+    <mat-radio-group [formControlName]="control" fxLayout="column" fxLayoutGap="20px" style="margin-left: 20px">
+      <mat-radio-button *ngFor="let item of answersControl" [value]="item">
+        {{questions[control]['answer'] ? questions[control]['answer'][item] : answers[item]}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+</div>
+
+<div fxLayout="row" fxLayoutAlign="end center">
+  <div fxFlex=""></div>
+  <button mat-button color="primary" routerLink="/tests">
+    <span>Назад до тестів</span>
+  </button>
+
+  <button mat-raised-button color="primary" [disabled]="form.invalid || equalTest" (click)="equalResponse()">
+    <mat-spinner *ngIf="equalTest"></mat-spinner>
+    <span>Результат</span>
+  </button>
+</div>
