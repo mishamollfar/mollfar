@@ -45,12 +45,12 @@ export function parseXmlToJson(xmlData) {
   const feed = xmlData.querySelectorAll('item');
   feed.forEach((key: HTMLElement) => {
     obj.push({
-      title: key.querySelector('title').innerHTML,
-      category: key.querySelector('category').innerHTML,
-      url: key.querySelector('link').innerHTML,
-      description: key.querySelector('description').innerHTML,
-      date: key.querySelector('pubDate').innerHTML,
-      image: key.querySelector('enclosure').getAttribute('url')
+      title: key.querySelector('title') ? key.querySelector('title').innerHTML : '',
+      category: key.querySelector('category') ? key.querySelector('category').innerHTML.replace(/(\<|\!|\[|\w+|\]\]\>)+/, ''): '',
+      url: key.querySelector('link') ? key.querySelector('link').innerHTML : '',
+      description: key.querySelector('description') ? key.querySelector('description').innerHTML : '',
+      date: key.querySelector('pubDate') ? key.querySelector('pubDate').innerHTML : '',
+      image: key.querySelector('enclosure') ? key.querySelector('enclosure').getAttribute('url') : ''
     });
   });
 

@@ -1,16 +1,47 @@
-<h3>Новини (джерело <a href="https://www.rbc.ua" target="_blank">РБК Україна</a>)</h3>
+<h3>Новини</h3>
 
-<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="stretch center">
-  <div class="mat-elevation-z1 feed-item" *ngFor="let newItem of news" fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="10px">
-    <img [src]="newItem.image" fxFlex="1 1 30%">
-    <div fxLayout="column" fxFlex="1 1 auto">
-      <h4>{{newItem.title}}</h4>
-      <span class="subtitle second-header">{{newItem.category}}</span>
-      <p fxFlex="">
-        {{newItem.description}}
-        <span><a class="link-button" [href]="newItem.url" target="_blank">детальніше на сайті видання</a></span>
-      </p>
-      <span class="subtitle second-header">опубліковано {{newItem.date | date: 'medium'}}</span>
+<ng-template #activeTab>
+  <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="stretch center">
+    <div class="mat-elevation-z1 feed-item" *ngFor="let newItem of news" fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="10px">
+      <img *ngIf="newItem.image" [src]="newItem.image" fxFlex="1 1 30%">
+      <div fxLayout="column" fxFlex="1 1 auto">
+        <h4>{{newItem.title}}</h4>
+        <span class="subtitle second-header">{{newItem.category}}</span>
+        <p fxFlex="">
+          {{newItem.description}}
+          <span><a class="link-button" [href]="newItem.url" target="_blank">детальніше на сайті видання</a></span>
+        </p>
+        <span class="subtitle second-header">опубліковано {{newItem.date | date: 'medium'}}</span>
+      </div>
     </div>
   </div>
-</div>
+</ng-template>
+
+
+<mat-tab-group (selectedTabChange)="changeTab($event)" [selectedIndex]="indexTab">
+  <mat-tab label="Blog angular">
+    <!-- <ng-container *ngIf="indexTab === 0"> -->
+      <div *ngIf="false; else activeTab"></div>
+    <!-- </ng-container> -->
+  </mat-tab>
+  <mat-tab label="Codeguida">
+    <!-- <ng-container *ngIf="indexTab === 1"> -->
+      <ng-container *ngTemplateOutlet="activeTab"></ng-container>
+    <!-- </ng-container> -->
+  </mat-tab>
+  <mat-tab label="Habrahabr">
+    <!-- <ng-container *ngIf="indexTab === 2"> -->
+      <ng-container *ngTemplateOutlet="activeTab"></ng-container>
+    <!-- </ng-container> -->
+  </mat-tab>
+  <mat-tab label="Tokar ua">
+    <!-- <ng-container *ngIf="indexTab === 3"> -->
+      <ng-container *ngTemplateOutlet="activeTab"></ng-container>
+    <!-- </ng-container> -->
+  </mat-tab>
+  <mat-tab label="РБК Україна">
+    <!-- <ng-container *ngIf="indexTab === 4"> -->
+      <ng-container *ngTemplateOutlet="activeTab"></ng-container>
+    <!-- </ng-container> -->
+  </mat-tab>
+</mat-tab-group>
