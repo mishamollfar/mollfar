@@ -16,3 +16,5 @@ import 'rxjs/add/operator/retryWhen';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/zip';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/observable/from';
