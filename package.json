@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --aot=false --host 0.0.0.0 --proxy-config proxy.json",
     "build": "ng build --prod",
     "test": "ng test",
     "check-format": "prettier --single-quote --print-width 120 --list-different \"src/**/*.ts\"",
