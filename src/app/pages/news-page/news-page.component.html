@@ -1,3 +1,16 @@
-<p>
-  news-page works!
-</p>
+<h3>Новини (джерело <a href="https://www.rbc.ua" target="_blank">РБК Україна</a>)</h3>
+
+<div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="stretch center">
+  <div class="mat-elevation-z1 feed-item" *ngFor="let newItem of news" fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="10px">
+    <img [src]="newItem.image" fxFlex="1 1 30%">
+    <div fxLayout="column" fxFlex="1 1 auto">
+      <h4>{{newItem.title}}</h4>
+      <span class="subtitle second-header">{{newItem.category}}</span>
+      <p fxFlex="">
+        {{newItem.description}}
+        <span><a class="link-button" [href]="newItem.url" target="_blank">детальніше на сайті видання</a></span>
+      </p>
+      <span class="subtitle second-header">опубліковано {{newItem.date | date: 'medium'}}</span>
+    </div>
+  </div>
+</div>
