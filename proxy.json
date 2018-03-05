@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "http://localhost:4200",
+    "_target": "https://mollfar.ml",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
