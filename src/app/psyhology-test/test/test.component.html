@@ -2,7 +2,7 @@
   <div *ngFor="let control of questionsControl; let i = index">
     <h3>{{i + 1}} {{questions[control]['question'] ? questions[control]['question'] : questions[control]}}</h3>
     <mat-radio-group [formControlName]="control" fxLayout="column" fxLayoutGap="20px" style="margin-left: 20px">
-      <mat-radio-button *ngFor="let item of answersControl" [value]="item">
+      <mat-radio-button *ngFor="let item of answersControl" [value]="item" color="primary">
         {{questions[control]['answer'] ? questions[control]['answer'][item] : answers[item]}}
       </mat-radio-button>
     </mat-radio-group>
