@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import {HttpClient} from '@angular/common/http';
 
 export interface Feed {
   title: string;

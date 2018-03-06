@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
@@ -8,7 +8,8 @@ import { answersTest, variantAnswer } from './answer';
 @Component({
   selector: 'ml-organizational-test-page',
   templateUrl: './organizational-test-page.component.html',
-  styleUrls: ['./organizational-test-page.component.scss']
+  styleUrls: ['./organizational-test-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OrganizationalTestPageComponent implements OnInit {
   questions;

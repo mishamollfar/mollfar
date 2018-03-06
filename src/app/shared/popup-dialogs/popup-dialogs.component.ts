@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 export interface DialogData {
@@ -9,7 +9,8 @@ export interface DialogData {
 @Component({
   selector: 'ml-popup-dialogs',
   templateUrl: './popup-dialogs.component.html',
-  styleUrls: ['./popup-dialogs.component.scss']
+  styleUrls: ['./popup-dialogs.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PopupDialogsComponent implements OnInit {
   constructor(

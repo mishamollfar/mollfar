@@ -11,6 +11,7 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { ServiceModule } from './service/service.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,7 +25,7 @@ import { ServiceModule } from './service/service.module';
     LoadingBarRouterModule,
     LoadingBarHttpModule,
     LoadingBarModule.forRoot(),
-    ServiceModule
+    ServiceModule, HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

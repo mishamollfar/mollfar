@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,8 @@ import { variantAnswer, answerTest } from './answer';
 @Component({
   selector: 'ml-contact-level-test-page',
   templateUrl: './contact-level-test-page.component.html',
-  styleUrls: ['./contact-level-test-page.component.scss']
+  styleUrls: ['./contact-level-test-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactLevelTestPageComponent implements OnInit {
   questions;

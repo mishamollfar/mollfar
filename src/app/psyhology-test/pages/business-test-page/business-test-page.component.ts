@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { testBusiness } from './questions';
 import { answerTest, variantAnswer } from './answer-test';
@@ -8,7 +8,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'ml-business-test-page',
   templateUrl: './business-test-page.component.html',
-  styleUrls: ['./business-test-page.component.scss']
+  styleUrls: ['./business-test-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusinessTestPageComponent implements OnInit {
   questions;

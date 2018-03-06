@@ -1,6 +1,6 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { testSelfEsteem } from './questions';
 import { answersTest, variantAnswer } from './answer';
@@ -8,7 +8,8 @@ import { answersTest, variantAnswer } from './answer';
 @Component({
   selector: 'ml-self-esteem-test-page',
   templateUrl: './self-esteem-test-page.component.html',
-  styleUrls: ['./self-esteem-test-page.component.scss']
+  styleUrls: ['./self-esteem-test-page.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SelfEsteemTestPageComponent implements OnInit {
   questions;
