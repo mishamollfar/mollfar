@@ -2,7 +2,7 @@
   <span>Mollfar</span>
 </div>
 
-<div class="section news link-section" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px" routerLink="/news">
+<div class="section news link-section" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="20px">
   <button fxHide fxShow.gt-sm *ngIf="currentnews > 0"  mat-button color="primary" (click)="previewNews()">
     <mat-icon>keyboard_arrow_left</mat-icon>
   </button>
@@ -12,10 +12,13 @@
   <ng-container *ngFor="let n of newslist; let i = index">
     <div *ngIf="i === currentnews" fxLayout="row" fxLayoutAlign="space-around center">
       <img fxFlex="1 1 24%" [src]="n.image">
-      <span fxHide fxShow.gt-md style="margin: auto 10px">{{n.text}}<a class="link-button" target="_blank" [href]="n.link"> детальніше</a></span>
-      <span fxShow.gt-md="false" style="margin: auto 10px">
-        {{n.text.substring(0, 150)}}<a class="link-button" target="_blank" [href]="n.link"> детальніше</a>
-      </span>
+      <div fxLayout="column" fxFlex="1 1 auto" style="margin: auto 10px">
+        <h4>{{n.title}}</h4>
+        <span fxHide fxShow.gt-md >{{n.description}}<a class="link-button" target="_blank" [href]="n.url"> детальніше</a></span>
+        <span fxShow.gt-md="false">
+          {{n.description.substring(0, 150)}}<a class="link-button" target="_blank" [href]="n.url"> детальніше</a>
+        </span>
+      </div>
     </div>
   </ng-container>
 
