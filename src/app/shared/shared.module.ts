@@ -9,7 +9,7 @@ import {
   MatDatepickerModule,
   MatDialogModule,
   MatExpansionModule,
-  MatFormFieldModule,
+  MatFormFieldModule, MatGridListModule,
   MatIconModule,
   MatInputModule,
   MatListModule,
@@ -70,7 +70,8 @@ import { PopupDialogsService } from './popup-dialogs/popup-dialogs.service';
     FormsModule,
     MatTableModule,
     MatFormFieldModule,
-    MatRadioModule
+    MatRadioModule,
+    MatGridListModule
   ],
   declarations: [PopupDialogsComponent],
   entryComponents: [PopupDialogsComponent],
@@ -107,7 +108,8 @@ import { PopupDialogsService } from './popup-dialogs/popup-dialogs.service';
     MatTableModule,
     MatFormFieldModule,
     MatRadioModule,
-    PopupDialogsComponent
+    PopupDialogsComponent,
+    MatGridListModule
   ],
   providers: [PopupDialogsService]
 })
