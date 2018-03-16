@@ -12,7 +12,7 @@ export const routes: Routes = [
   { path: 'home', component: HomePageComponent, data: { title: 'Головна' } },
   { path: 'news', component: NewsPageComponent, data: { title: 'Новини' } },
   { path: 'contact', component: ContactPageComponent, data: { title: 'Контакти' } },
-  // { path: 'photo', component: PhotoGalleryPageComponent, data: { title: 'Фотогалерея' } },
+  { path: 'photo', component: PhotoGalleryPageComponent, data: { title: 'Фотогалерея' } },
   { path: 'tests', loadChildren: 'app/psyhology-test/psyhology-test.module#PsyhologyTestModule' },
   { path: '**', redirectTo: '/' }
 ];

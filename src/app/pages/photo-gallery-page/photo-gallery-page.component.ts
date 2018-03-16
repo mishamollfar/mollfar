@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ImageGalery, PixabayImageApiService } from '../../service/pixabay-image-api.service';
 
 @Component({
   selector: 'ml-photo-gallery-page',
@@ -7,7 +8,24 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PhotoGalleryPageComponent implements OnInit {
-  constructor() {}
+  images: ImageGalery;
 
-  ngOnInit() {}
+  constructor(private pixApi: PixabayImageApiService, private cd: ChangeDetectorRef) {}
+
+  ngOnInit() {
+    this.getImages();
+  }
+
+  getImages() {
+    this.pixApi
+      .getImages()
+      .finally(() => this.cd.detectChanges())
+      .subscribe(
+        rs => {
+          this.images = rs;
+          console.log(this.images);
+        },
+        err => console.log(err)
+      );
+  }
 }
