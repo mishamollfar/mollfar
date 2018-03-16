@@ -1,5 +1,8 @@
-<p>
-  photo-gallery-page works!
-</p>
+<mat-grid-list cols="4" rowHeight="100px" *ngIf="images">
+  <mat-grid-tile
+    *ngFor="let image of images.hits">
+    <img [src]="image.previewURL" [alt]="image.type">
+  </mat-grid-tile>
+</mat-grid-list>
 
 <pre>{{images | json}}</pre>
