@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { Feed, parseXmlToJson, RssFeedApiService } from '../../service/rss-feed-api.service';
 import { MatTabChangeEvent } from '@angular/material';
 
@@ -31,12 +31,9 @@ export class NewsPageComponent implements OnInit {
   changeTab(event?: MatTabChangeEvent) {
     delete this.news;
     this.indexTab = event ? event.index : this.indexTab;
-    this.feedApi.getFeeds(this.feed[this.indexTab])
+    this.feedApi
+      .getFeeds(this.feed[this.indexTab])
       .finally(() => this.cd.detectChanges())
-      .subscribe(
-      rs => this.news = parseXmlToJson(rs),
-      err => console.log('error', err)
-    );
+      .subscribe(rs => (this.news = parseXmlToJson(rs)), err => console.log('error', err));
   }
-
 }

@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {parseXmlToJson, RssFeedApiService} from '../../service/rss-feed-api.service';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { parseXmlToJson, RssFeedApiService } from '../../service/rss-feed-api.service';
 
 @Component({
   selector: 'ml-landing-page',
@@ -29,12 +29,10 @@ export class LandingPageComponent implements OnInit {
   constructor(private cd: ChangeDetectorRef, private feedApi: RssFeedApiService) {}
 
   ngOnInit() {
-    this.feedApi.getFeeds('https://www.rbc.ua/static/rss/newsline.img.ukr.rss.xml')
+    this.feedApi
+      .getFeeds('https://www.rbc.ua/static/rss/newsline.img.ukr.rss.xml')
       .finally(() => this.cd.detectChanges())
-      .subscribe(
-        rs => this.newslist = parseXmlToJson(rs).splice(0, 5),
-        err => console.log('error', err)
-      );
+      .subscribe(rs => (this.newslist = parseXmlToJson(rs).splice(0, 5)), err => console.log('error', err));
   }
 
   previewNews() {

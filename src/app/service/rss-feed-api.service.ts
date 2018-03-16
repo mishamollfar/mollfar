@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 export interface Feed {
   title: string;
@@ -47,7 +47,9 @@ export function parseXmlToJson(xmlData) {
   feed.forEach((key: HTMLElement) => {
     obj.push({
       title: key.querySelector('title') ? key.querySelector('title').innerHTML : '',
-      category: key.querySelector('category') ? key.querySelector('category').innerHTML.replace(/(\<|\!|\[|\w+|\]\]\>)+/g, '') : '',
+      category: key.querySelector('category')
+        ? key.querySelector('category').innerHTML.replace(/(\<|\!|\[|\w+|\]\]\>)+/g, '')
+        : '',
       url: key.querySelector('link') ? key.querySelector('link').innerHTML : '',
       description: key.querySelector('description') ? key.querySelector('description').innerHTML : '',
       date: key.querySelector('pubDate') ? key.querySelector('pubDate').innerHTML : '',
