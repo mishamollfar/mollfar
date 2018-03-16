@@ -29,6 +29,10 @@ export class LandingPageComponent implements OnInit {
   constructor(private cd: ChangeDetectorRef, private feedApi: RssFeedApiService) {}
 
   ngOnInit() {
+    this.getNews();
+  }
+
+  getNews() {
     this.feedApi
       .getFeeds('https://www.rbc.ua/static/rss/newsline.img.ukr.rss.xml')
       .finally(() => this.cd.detectChanges())
