@@ -19,28 +19,28 @@
 
 
 <mat-tab-group (selectedTabChange)="changeTab($event)" [selectedIndex]="indexTab">
-  <mat-tab label="Кореспондент">
-     <ng-container *ngIf="indexTab === 0">
-      <div *ngIf="false; else activeTab"></div>
-     </ng-container>
-  </mat-tab>
-  <mat-tab label="Codeguida">
-     <ng-container *ngIf="indexTab === 1">
-      <ng-container *ngTemplateOutlet="activeTab"></ng-container>
-     </ng-container>
-  </mat-tab>
-  <mat-tab label="Habrahabr">
-     <ng-container *ngIf="indexTab === 2">
-      <ng-container *ngTemplateOutlet="activeTab"></ng-container>
-     </ng-container>
-  </mat-tab>
-  <mat-tab label="Tokar ua">
-     <ng-container *ngIf="indexTab === 3">
-      <ng-container *ngTemplateOutlet="activeTab"></ng-container>
-     </ng-container>
-  </mat-tab>
+  <!--<mat-tab label="Кореспондент">-->
+     <!--<ng-container *ngIf="indexTab === 0">-->
+      <!--<div *ngIf="false; else activeTab"></div>-->
+     <!--</ng-container>-->
+  <!--</mat-tab>-->
+  <!--<mat-tab label="Codeguida">-->
+     <!--<ng-container *ngIf="indexTab === 1">-->
+      <!--<ng-container *ngTemplateOutlet="activeTab"></ng-container>-->
+     <!--</ng-container>-->
+  <!--</mat-tab>-->
+  <!--<mat-tab label="Habrahabr">-->
+     <!--<ng-container *ngIf="indexTab === 2">-->
+      <!--<ng-container *ngTemplateOutlet="activeTab"></ng-container>-->
+     <!--</ng-container>-->
+  <!--</mat-tab>-->
+  <!--<mat-tab label="Tokar ua">-->
+     <!--<ng-container *ngIf="indexTab === 3">-->
+      <!--<ng-container *ngTemplateOutlet="activeTab"></ng-container>-->
+     <!--</ng-container>-->
+  <!--</mat-tab>-->
   <mat-tab label="РБК Україна">
-     <ng-container *ngIf="indexTab === 4">
+     <ng-container *ngIf="indexTab === 0">
       <ng-container *ngTemplateOutlet="activeTab"></ng-container>
      </ng-container>
   </mat-tab>
