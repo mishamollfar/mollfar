@@ -55,8 +55,9 @@
   background: #379dfe;
   .img-container {
     max-height: 50%;
+    margin: 0 5px 5px 0;
     img {
-      margin: 5px;
+      margin: 0;
       object-fit: cover;
       object-position: center;
     }
