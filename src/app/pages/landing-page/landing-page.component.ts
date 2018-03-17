@@ -13,7 +13,11 @@ export class LandingPageComponent implements OnInit {
   newslist = [];
   images;
 
-  constructor(private cd: ChangeDetectorRef, private feedApi: RssFeedApiService, private pixApi: PixabayImageApiService) {}
+  constructor(
+    private cd: ChangeDetectorRef,
+    private feedApi: RssFeedApiService,
+    private pixApi: PixabayImageApiService
+  ) {}
 
   ngOnInit() {
     this.getNews();
@@ -32,9 +36,7 @@ export class LandingPageComponent implements OnInit {
       .getImages()
       .finally(() => this.cd.detectChanges())
       .map(res => res.hits.splice(0, 10))
-      .subscribe(
-        rs => this.images = rs.map(item => item.previewURL),  err => console.log(err)
-      );
+      .subscribe(rs => (this.images = rs.map(item => item.previewURL)), err => console.log(err));
   }
 
   previewNews() {

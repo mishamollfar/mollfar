@@ -20,9 +20,6 @@ export class PhotoGalleryPageComponent implements OnInit {
     this.pixApi
       .getImages()
       .finally(() => this.cd.detectChanges())
-      .subscribe(
-        rs => this.images = rs,
-        err => console.log(err)
-      );
+      .subscribe(rs => (this.images = rs), err => console.log(err));
   }
 }
