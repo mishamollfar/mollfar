@@ -1,0 +1,10 @@
+.image-container {
+  margin: 20px 20px 0 0;
+  mat-card {
+    .image {
+      height: calc(100% - 72px);
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}

@@ -21,10 +21,7 @@ export class PhotoGalleryPageComponent implements OnInit {
       .getImages()
       .finally(() => this.cd.detectChanges())
       .subscribe(
-        rs => {
-          this.images = rs;
-          console.log(this.images);
-        },
+        rs => this.images = rs,
         err => console.log(err)
       );
   }
