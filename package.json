@@ -6,6 +6,8 @@
     "ng": "ng",
     "start": "ng serve --aot=false --host 0.0.0.0 --proxy-config proxy.json",
     "build": "ng build --prod",
+    "build-pages": "ng build --prod --base-href",
+    "gh-pages": "gh-pages -d dist",
     "test": "ng test",
     "check-format": "prettier --single-quote --print-width 120 --list-different \"src/**/*.ts\"",
     "format": "prettier --single-quote --print-width 120 --write \"src/**/*.ts\"",
