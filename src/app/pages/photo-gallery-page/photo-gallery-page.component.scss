@@ -3,6 +3,7 @@
   mat-card {
     .image {
       height: calc(100% - 72px);
+      max-height: 150px;
       object-fit: cover;
       object-position: center;
     }
