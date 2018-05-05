@@ -30,9 +30,9 @@
   </button>
 </div>
 
-<div class="section photo-gallery link-section" fxLayout="row" fxLayoutAlign="center stretch "
-     fxLayoutWrap="wrap" routerLink="/photo">
-  <div class="img-container" fxLayoutAlign="center stretch " *ngFor="let photo of images" fxFlex="1 1 18%">
+<div class="section photo-gallery link-section" fxLayout="row wrap" fxLayoutAlign="center stretch " routerLink="/photo">
+  <div class="img-container" *ngFor="let photo of images"
+       fxLayoutAlign="center stretch" fxFlex="1 1 18%" fxFlex.xs="1 1 23%">
     <img fxFlex="1 1 100%" [src]="photo">
   </div>
 </div>

@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs/internal/operators';
+import { filter, takeUntil } from 'rxjs/internal/operators';
+import { Subject } from 'rxjs/index';
 
 @Component({
   selector: 'ml-root',
@@ -8,11 +9,15 @@ import { filter } from 'rxjs/internal/operators';
   styleUrls: ['./app.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   isHome;
+  destroy = new Subject();
 
   constructor(private router: Router) {
-    router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(rs => (this.isHome = rs['url']));
+    router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      takeUntil(this.destroy)
+    ).subscribe(rs => (this.isHome = rs['url']));
   }
 
   get homePage() {
@@ -20,4 +25,8 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {}
+
+  ngOnDestroy() {
+    this.destroy.next();
+  }
 }

@@ -10,6 +10,8 @@
   color: #27756e;
   mat-list-item {
     color: #27756e;
+    height: auto;
+    letter-spacing: 0.1em;
   }
 }
 .background-vector {
@@ -112,5 +114,11 @@
       font-size: 0.8em;
       height: 24px;
     }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .background-vector  {
+    background-position-x: 120%;
   }
 }

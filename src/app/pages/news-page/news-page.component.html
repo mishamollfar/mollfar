@@ -2,7 +2,8 @@
 
 <ng-template #activeTab>
   <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="stretch center">
-    <div class="mat-elevation-z1 feed-item" *ngFor="let newItem of news" fxLayout="row" fxLayoutAlign="stretch center" fxLayoutGap="10px">
+    <div class="mat-elevation-z1 feed-item" *ngFor="let newItem of news" fxLayout="row" fxLayoutAlign="stretch center"
+         fxLayout.xs="column" fxLayoutGap="10px">
       <img *ngIf="newItem.image" [src]="newItem.image" fxFlex="1 1 30%">
       <div fxLayout="column" fxFlex="1 1 auto">
         <h4>{{newItem.title}}</h4>

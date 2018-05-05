@@ -1,4 +1,5 @@
-<mat-toolbar color="primary" fxLayoutGap="25px" [class.home-toolbar]="homePage">
+<mat-toolbar color="primary" [class.home-toolbar]="homePage"
+             fxLayoutGap="25px" fxLayoutGap.xs="10px" [ngStyle.xs]="'font-size: 1em;'">
   <span class="link-section" routerLink="/">Головна</span>
   <span class="link-section" routerLink="/news">Новини</span>
   <span class="link-section" routerLink="/photo">Фотогалерея</span>
@@ -6,7 +7,8 @@
   <span class="link-section" routerLink="/contact">Контакти</span>
 </mat-toolbar>
 
-<div [class.content]="!homePage">
+<div [class.content]="!homePage " [ngStyle.lt-lg]="!homePage ? 'width: 96vw;' : 'width: 100vw;'"
+     [ngStyle.gt-md]="!homePage ? 'width: 80vw;' : 'width: 100vw;'">
   <router-outlet></router-outlet>
 </div>
 
