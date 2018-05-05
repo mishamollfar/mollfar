@@ -7,8 +7,8 @@
   <span class="link-section" routerLink="/contact">Контакти</span>
 </mat-toolbar>
 
-<div [class.content]="!homePage " [ngStyle.lt-lg]="!homePage ? 'width: 96vw;' : 'width: 100vw;'"
-     [ngStyle.gt-md]="!homePage ? 'width: 80vw;' : 'width: 100vw;'">
+<div [class.content]="!homePage " [ngStyle.lt-lg]="!homePage ? 'width: 96vw;' : ''"
+     [ngStyle.gt-md]="!homePage ? 'width: 80vw;' : ''">
   <router-outlet></router-outlet>
 </div>
 
