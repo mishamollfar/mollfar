@@ -34,9 +34,7 @@ export class NewsPageComponent implements OnInit {
     this.indexTab = event ? event.index : this.indexTab;
     this.feedApi
       .getFeeds(this.feed[this.indexTab])
-      .pipe(
-        finalize(() => this.cd.detectChanges())
-      )
+      .pipe(finalize(() => this.cd.detectChanges()))
       .subscribe(rs => (this.news = parseXmlToJson(rs)), err => console.log('error', err));
   }
 }

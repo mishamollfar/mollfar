@@ -14,10 +14,9 @@ export class AppComponent implements OnInit, OnDestroy {
   destroy = new Subject();
 
   constructor(private router: Router) {
-    router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      takeUntil(this.destroy)
-    ).subscribe(rs => (this.isHome = rs['url']));
+    router.events
+      .pipe(filter(event => event instanceof NavigationEnd), takeUntil(this.destroy))
+      .subscribe(rs => (this.isHome = rs['url']));
   }
 
   get homePage() {

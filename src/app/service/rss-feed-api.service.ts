@@ -19,7 +19,7 @@ export class RssFeedApiService {
   }
 
   request(method, url): Observable<any> {
-    return Observable.create( observer => {
+    return Observable.create(observer => {
       const xhr = new XMLHttpRequest();
       xhr.open(method, url);
 

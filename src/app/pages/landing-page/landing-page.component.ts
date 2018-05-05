@@ -28,19 +28,14 @@ export class LandingPageComponent implements OnInit {
   getNews() {
     this.feedApi
       .getFeeds('https://www.rbc.ua/static/rss/newsline.img.ukr.rss.xml')
-      .pipe(
-        finalize(() => this.cd.detectChanges())
-      )
+      .pipe(finalize(() => this.cd.detectChanges()))
       .subscribe(rs => (this.newslist = parseXmlToJson(rs).splice(0, 5)), err => console.log('error', err));
   }
 
   getImages() {
     this.pixApi
       .getImages()
-      .pipe(
-        finalize(() => this.cd.detectChanges()),
-        map(res => res.hits.splice(0, 10))
-      )
+      .pipe(finalize(() => this.cd.detectChanges()), map(res => res.hits.splice(0, 10)))
       .subscribe(rs => (this.images = rs.map(item => item.previewURL)), err => console.log(err));
   }
 
