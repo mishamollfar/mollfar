@@ -87,23 +87,22 @@ export class PixabayImageApiService {
 
   request(method, params): Observable<any> {
     const url = this.URL + params;
-    return Observable.from(
-      new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open(method, url);
+    return Observable.create(observer => {
+      const xhr = new XMLHttpRequest();
+      xhr.open(method, url);
 
-        xhr.send();
+      xhr.send();
 
-        xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              resolve(JSON.parse(xhr.response));
-            } else {
-              reject(xhr.response);
-            }
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            observer.next(JSON.parse(xhr.response));
+            observer.complete();
+          } else {
+            observer.error(xhr.response);
           }
-        };
-      })
-    );
+        }
+      };
+    });
   }
 }

@@ -4,6 +4,7 @@ import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs
 import { Router } from '@angular/router';
 import { testContact } from './questions';
 import { variantAnswer, answerTest } from './answer';
+import { finalize } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'ml-contact-level-test-page',
@@ -40,10 +41,12 @@ export class ContactLevelTestPageComponent implements OnInit {
     this.info
       .open(dialogMsg, 'info')
       .afterClosed()
-      .finally(() => {
-        this.equalTest = false;
-        this.cd.detectChanges();
-      })
+      .pipe(
+        finalize(() => {
+          this.equalTest = false;
+          this.cd.detectChanges();
+        })
+      )
       .subscribe(rs => {
         if (!rs) {
           this.clearForm();

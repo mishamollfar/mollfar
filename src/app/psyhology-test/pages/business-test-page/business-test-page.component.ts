@@ -4,6 +4,7 @@ import { testBusiness } from './questions';
 import { answerTest, variantAnswer } from './answer-test';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
 import { Router } from '@angular/router';
+import { finalize } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'ml-business-test-page',
@@ -40,10 +41,12 @@ export class BusinessTestPageComponent implements OnInit {
     this.info
       .open(dialogMsg, 'info')
       .afterClosed()
-      .finally(() => {
-        this.equalTest = false;
-        this.cd.detectChanges();
-      })
+      .pipe(
+        finalize(() => {
+          this.equalTest = false;
+          this.cd.detectChanges();
+        })
+      )
       .subscribe(rs => {
         if (!rs) {
           this.clearForm();

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'ml-root',
@@ -11,7 +12,7 @@ export class AppComponent implements OnInit {
   isHome;
 
   constructor(private router: Router) {
-    router.events.filter(event => event instanceof NavigationEnd).subscribe(rs => (this.isHome = rs['url']));
+    router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(rs => (this.isHome = rs['url']));
   }
 
   get homePage() {

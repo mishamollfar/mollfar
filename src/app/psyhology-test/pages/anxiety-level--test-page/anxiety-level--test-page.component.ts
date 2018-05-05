@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { PopupDialogsService } from '../../../shared/popup-dialogs/popup-dialogs.service';
 import { testAnxiety } from './questions';
 import { answersTest, variantAnswer } from './answer';
+import { finalize } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'ml-anxiety-level--test-page',
@@ -40,10 +41,12 @@ export class AnxietyLevelTestPageComponent implements OnInit {
     this.info
       .open(dialogMsg, 'info')
       .afterClosed()
-      .finally(() => {
-        this.equalTest = false;
-        this.cd.detectChanges();
-      })
+      .pipe(
+        finalize(() => {
+          this.equalTest = false;
+          this.cd.detectChanges();
+        })
+      )
       .subscribe(rs => {
         if (!rs) {
           this.clearForm();

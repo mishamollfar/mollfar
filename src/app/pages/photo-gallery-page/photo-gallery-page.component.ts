@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ImageGalery, PixabayImageApiService } from '../../service/pixabay-image-api.service';
+import { finalize } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'ml-photo-gallery-page',
@@ -19,7 +20,9 @@ export class PhotoGalleryPageComponent implements OnInit {
   getImages() {
     this.pixApi
       .getImages()
-      .finally(() => this.cd.detectChanges())
+      .pipe(
+        finalize(() => this.cd.detectChanges())
+      )
       .subscribe(rs => (this.images = rs), err => console.log(err));
   }
 }

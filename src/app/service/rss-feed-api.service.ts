@@ -19,24 +19,23 @@ export class RssFeedApiService {
   }
 
   request(method, url): Observable<any> {
-    return Observable.from(
-      new Promise((resolve, reject) => {
-        const xhr = new XMLHttpRequest();
-        xhr.open(method, url);
+    return Observable.create( observer => {
+      const xhr = new XMLHttpRequest();
+      xhr.open(method, url);
 
-        xhr.send();
+      xhr.send();
 
-        xhr.onreadystatechange = () => {
-          if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-              resolve(xhr.responseXML);
-            } else {
-              reject(xhr.response);
-            }
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            observer.next(xhr.responseXML);
+            observer.complete();
+          } else {
+            observer.error(xhr.response);
           }
-        };
-      })
-    );
+        }
+      };
+    });
   }
 }
 
