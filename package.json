@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node index.js",
+    "start": "ng serve",
     "build": "ng build --prod --source-map",
     "build-pages": "ng build --prod --base-href --source-map",
     "deploy": "gh-pages -d dist",
