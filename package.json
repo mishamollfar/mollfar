@@ -13,6 +13,7 @@
     "format": "prettier --single-quote --print-width 120 --write \"src/**/*.ts\"",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "heroku-start": "ng serve --prod",
     "heroku-postbuild": "ng build --prod"
   },
   "private": true,
